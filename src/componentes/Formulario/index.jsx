@@ -4,7 +4,7 @@ import ListaSuspensa from "../ListaSuspensa/index.jsx";
 import Botao from "../Botao/index.jsx";
 import { useState } from "react";
 
-const Formulario = () => {
+const Formulario = (props) => {
   const times = [
     "Front-end",
     "Data Science",
@@ -17,8 +17,16 @@ const Formulario = () => {
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
-  const aoSalvar = () => {
-    console.log("Formulario foi submitido");
+
+  const aoSalvar = (e) => {
+    e.preventDefault();
+
+    props.aoColaboradorCadastrado({
+      nome,
+      cargo,
+      imagem,
+      times
+    });
   };
   return (
     <section className="Formulario">
