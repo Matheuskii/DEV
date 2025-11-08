@@ -17,43 +17,58 @@ const Formulario = (props) => {
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
+  const [time, setTime] = useState("");
 
   const aoSalvar = (e) => {
     e.preventDefault();
-
-    props.aoColaboradorCadastrado({
-      nome,
-      cargo,
-      imagem,
-      times
-    });
+    if (typeof props.aoColaboradorCadastrado === "function") {
+      props.aoColaboradorCadastrado({
+        nome,
+        cargo,
+        imagem,
+        time, // -> envia o time selecionado
+      });
+      setNome("");
+      setCargo("");
+      setImagem("");
+      setTime("");
+    }
   };
+
   return (
     <section className="Formulario">
-      <form onSubmit={aoSalvar()}>
+      <form onSubmit={aoSalvar}>
         <h2>Preencha os dados para criar o card dos colaboradores</h2>
         <CampoTexto
           obrigatorio={true}
           label="Nome"
           placeholder="Digite o seu nome"
-          valor={nome}
-          aoALterado={(valor) => setNome(valor)}
+          value={nome}
+          aoAlterado={(valor) => setNome(valor)}
+          item={props.times}
         />
         <CampoTexto
           obrigatorio={true}
           label="Cargo"
           placeholder="Digite o seu Cargo"
-          valor={cargo}
-          aoALterado={(valor) => setCargo(valor)}
+          value={cargo}
+          aoAlterado={(valor) => setCargo(valor)}
         />
         <CampoTexto
           label="Imagem"
           placeholder="Digite o endereço da Imagem"
-          valor={imagem}
-          aoALterado={(valor) => setImagem(valor)}
+          value={imagem}
+          aoAlterado={(valor) => setImagem(valor)}
         />
-        <ListaSuspensa obrigatorio={true} label="Time:" item={times} />
-        <Botao texto="Me aperte (lá ele)"></Botao>
+        <ListaSuspensa
+          obrigatorio={true}
+          label="Time:"
+          itens={props.times}
+          value={time}
+          aoAlterado={(valor) => setTime(valor)}
+          i
+        />
+        <Botao texto="Criar colaborador" />
       </form>
     </section>
   );

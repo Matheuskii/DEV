@@ -4,8 +4,6 @@ import './CampoTexto.css'
 
 const CampoTexto = (props) =>{
 
-  // let valor = 'Rhuan'
-
     const aoDigitar = (evento) => {
       props.aoAlterado(evento.target.value)
     }
