@@ -30,7 +30,7 @@ const Formulario = (props) => {
   };
   return (
     <section className="Formulario">
-      <form onSubmit={aoSalvar()}>
+      <form onSubmit={aoSalvar}>
         <h2>Preencha os dados para criar o card dos colaboradores</h2>
         <CampoTexto
           obrigatorio={true}
