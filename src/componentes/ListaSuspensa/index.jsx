@@ -7,7 +7,10 @@ const ListaSuspensa = (props) => {
       <select
         required={!!props.obrigatorio}
         value={props.value ?? ""}
-        onChange={(e) => typeof props.aoAlterado === "function" && props.aoAlterado(e.target.value)}
+        onChange={(e) =>
+          typeof props.aoAlterado === "function" &&
+          props.aoAlterado(e.target.value)
+        }
       >
         <option value="">Selecione</option>
         {props.item?.map((it) => (

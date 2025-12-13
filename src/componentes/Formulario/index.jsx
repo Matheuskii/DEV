@@ -21,6 +21,7 @@ const Formulario = (props) => {
 
   const aoSalvar = (e) => {
     e.preventDefault();
+    console.log(time)
     if (typeof props.aoColaboradorCadastrado === "function") {
       props.aoColaboradorCadastrado({
         nome,
