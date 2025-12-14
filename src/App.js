@@ -59,6 +59,7 @@ function App() {
       <Banner/>
       <Formulario aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
         <Time/>
+        
       
     </div>
   );

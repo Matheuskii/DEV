@@ -1,0 +1,50 @@
+.colaborador {
+    width: 280px;
+    /* Adiciona uma sombra suave para dar profundidade */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    /* Fundo branco para a parte de baixo do card */
+    background-color: #FFFFFF; 
+}
+
+.colaborador .cabecalho {
+    /* Arredonda apenas os cantos de cima */
+    border-radius: 10px 10px 0 0;
+    /* Centraliza a imagem horizontalmente */
+    display: flex;
+    justify-content: center;
+}
+
+.colaborador img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Deixa a imagem redonda */
+    
+    /* O "truque" para a imagem ficar sobreposta: */
+    position: relative;
+    bottom: -60px; /* Empurra para baixo metade da altura da imagem */
+    border: 3px solid #ffffff; /* Borda branca para destacar do fundo colorido */
+    object-fit: cover; /* Evita que a imagem fique distorcida */
+}
+
+.colaborador .rodape {
+    border-radius: 0 0 10px 10px;
+    /* Adiciona espaço no topo para a imagem não ficar em cima do texto */
+    padding-top: 90px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.colaborador .rodape h4 {
+    color: #6278F7;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.colaborador .rodape h5 {
+    font-size: 16px;
+    color: #212121;
+    padding: 0 16px;
+    margin: 0;
+}

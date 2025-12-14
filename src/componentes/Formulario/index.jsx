@@ -1,23 +1,14 @@
 import CampoTexto from "../CampoTexto/CampoTexto";
 import "./Formulario.css";
 import ListaSuspensa from "../ListaSuspensa/index.jsx";
-import Botao from "../Botao/index.jsx";
 import { useState } from "react";
 
 const Formulario = (props) => {
-  const times = [
-    "Front-end",
-    "Data Science",
-    "Devops",
-    "Mobile",
-    "UX e Design",
-    "Segurança da informação",
-  ];
-
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
-
+  const [times = [], setTime]  = useState("")
+  
   const aoSalvar = (e) => {
     e.preventDefault();
 
@@ -25,7 +16,7 @@ const Formulario = (props) => {
       nome,
       cargo,
       imagem,
-      times
+      times,
     });
   };
   return (
@@ -37,23 +28,28 @@ const Formulario = (props) => {
           label="Nome"
           placeholder="Digite o seu nome"
           valor={nome}
-          aoALterado={(valor) => setNome(valor)}
+          aoAlterado={(valor) => setNome(valor)}
         />
         <CampoTexto
           obrigatorio={true}
           label="Cargo"
           placeholder="Digite o seu Cargo"
           valor={cargo}
-          aoALterado={(valor) => setCargo(valor)}
+          aoAlterado={(valor) => setCargo(valor)}
         />
         <CampoTexto
           label="Imagem"
           placeholder="Digite o endereço da Imagem"
           valor={imagem}
-          aoALterado={(valor) => setImagem(valor)}
+          aoAlterado={(valor) => setImagem(valor)}
         />
-        <ListaSuspensa obrigatorio={true} label="Time:" item={times} />
-        <Botao texto="Me aperte (lá ele)"></Botao>
+      <ListaSuspensa
+          obrigatorio={true}
+          label="Time"
+          itens={props.times} 
+          value={times}
+          aoAlterado={valor => setTime(valor)}
+        />
       </form>
     </section>
   );
