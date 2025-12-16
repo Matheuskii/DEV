@@ -1,0 +1,20 @@
+.time {
+    text-align: center;
+    padding: 32px;
+}
+
+.time h3 {
+    font-size: 32px;
+    border-bottom: 4px solid;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+/* AQUI ESTÁ A MÁGICA DO ALINHAMENTO */
+.colaboradores {
+    display: flex;         /* Coloca um ao lado do outro */
+    justify-content: center; /* Centraliza o grupo de cards na tela */
+    flex-wrap: wrap;       /* Se não couber na linha, joga para baixo */
+    gap: 20px;             /* Espaço entre os cards */
+    margin-top: 32px;
+}
