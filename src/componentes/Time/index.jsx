@@ -1,24 +1,23 @@
+import Colaborador from '../Colaborador'; // Importe o novo componente
 import './Time.css';
 
 export default function Time({ nome, corPrimaria, corSecundaria, colaboradores = [] }) {
+  // Se não tiver colaboradores, não mostre o time (opcional, mas fica mais limpo)
   return (
-    console.log(colaboradores),
-    <div className="time" style={{ backgroundColor: corSecundaria }}>
-      <h3 style={{borderColor: `${corSecundaria}`, borderBottom: `4px solid ${corPrimaria}`, padding: '8px 12px' }}>{nome}</h3>
+    (colaboradores.length > 0) && <section className="time" style={{ backgroundColor: corSecundaria }}>
+      <h3 style={{ borderColor: corPrimaria }}>{nome}</h3>
       <div className="colaboradores">
-        {colaboradores.length === 0 ? (
-          <p style={{ padding: '8px 12px' }}>Nenhum Colaborador</p>
-        ) : (
-          colaboradores.map(col => (
-            console.log(col),
-            <div key={col.nome} className="colaborador">
-              <p>
-              {col.nome}, {col.cargo}, <img src={col.imagem} alt={col.nome} />
-              </p>
-            </div>
-          ))
-        )}
+        {colaboradores.map(col => (
+             <Colaborador 
+                key={col.nome}
+                nome={col.nome} 
+                cargo={col.cargo} 
+                imagem={col.imagem}
+                corDeFundo={corPrimaria} 
+                
+             />
+        ))}
       </div>
-    </div>
+    </section>
   );
 }

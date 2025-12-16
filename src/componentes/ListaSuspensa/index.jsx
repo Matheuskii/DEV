@@ -4,20 +4,20 @@ const ListaSuspensa = (props) => {
   return (
     <div className="lista-suspensa">
       <label>{props.label}</label>
-      <select
-        required={!!props.obrigatorio}
-        value={props.value ?? ""}
-        onChange={(e) =>
-          typeof props.aoAlterado === "function" &&
-          props.aoAlterado(e.target.value)
-        }
+      
+      <select 
+        // Atualiza o valor quando o usuário escolhe uma opção
+        onChange={evento => props.aoAlterado(evento.target.value)} 
+        required={props.obrigatorio} 
+        value={props.value}
       >
-        <option value="">Selecione</option>
-        {props.item?.map((it) => (
-          <option key={it} value={it}>
-            {it}
-          </option>
-        ))}
+        <option value="">Selecione um time...</option>
+        
+        {/* Aqui usamos 'itens' (plural) que vem do Formulario */}
+        {props.itens?.map((it) => {
+          return <option key={it}>{it}</option>
+        })}
+
       </select>
     </div>
   );

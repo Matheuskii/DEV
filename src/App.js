@@ -18,14 +18,21 @@ function App() {
   const [colaboradores, setColaboradores] = useState([]);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    console.log(colaborador);
+    // Isso ajuda a ver se os dados estão chegando no App
+    console.log('Novo colaborador recebido no App:', colaborador); 
     setColaboradores([...colaboradores, colaborador]);
   };
 
   return (
     <div className="App">
       <Banner/>
-      <Formulario times={times.map(time => time.nome)}/>
+      
+      <Formulario 
+        times={times.map(time => time.nome)} 
+        aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}
+      />
+      {/* ------------------------------------ */}
+
       <section className="times">
         {times.map(time => (
           <Time
@@ -40,4 +47,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
